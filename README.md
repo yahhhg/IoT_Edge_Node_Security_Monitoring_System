@@ -7,7 +7,7 @@
 - 操作系统：Windows 10 / Windows 11（64 位）
 - 开发环境：Qt 6.5+（推荐 LTS 版本，如 6.6.3 LTS）
 - 编译器：MinGW 64-bit 或 MSVC 2019/2022 64-bit
-- 依赖 Qt 模块：`Core` `Gui` `Widgets` `Network` `Concurrent`
+- 依赖 Qt 模块：Core Gui Widgets Network Sql Charts        
 
 下位机（树莓派端）：
 
