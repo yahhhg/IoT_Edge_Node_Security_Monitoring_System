@@ -1,5 +1,32 @@
 # 基于树莓派的工业物联网边缘节点监控系统
 
+# 环境要求
+
+上位机（Windows 端）：
+
+- 操作系统：Windows 10 / Windows 11（64 位）
+- 开发环境：Qt 6.5+（推荐 LTS 版本，如 6.6.3 LTS）
+- 编译器：MinGW 64-bit 或 MSVC 2019/2022 64-bit
+- 依赖 Qt 模块：`Core` `Gui` `Widgets` `Network` `Concurrent`
+
+下位机（树莓派端）：
+
+- 硬件：树莓派全系列型号（推荐树莓派 3B+/4B/5）
+- 操作系统：Raspberry Pi OS (Debian 11/12)、Ubuntu for ARM 等主流 Linux 发行版
+- 软件环境：Python 3.8+
+- 依赖 Python 库：
+python3-pip / python3-venv：Python 环境与虚拟环境管理；
+python3-libgpiod：树莓派 5 新一代 GPIO 内核驱动（替代旧版 wiringPi）；
+i2c-tools / python3-smbus2：I2C 总线通信驱动（MQ2 + PCF8591 ADC 专用）；
+adafruit-blinka：树莓派硬件抽象层，提供统一的硬件引脚 / 总线接口；
+adafruit-circuitpython-dht：官方新版 DHT 传感器驱动（兼容树莓派 5）；
+RPi.GPIO：GPIO 兼容辅助库；
+adafruit-circuitpython-pcf8591：PCF8591 ADC 模块驱动（读取模拟量）；
+
+# 核心参数配置
+
+下位机 sensor_dht22.py 与 sensor_mq2.py 默认使用软件模拟硬件输出，修改其构造的def __init__ 参数simulation_mode=False 来使用真实硬件输出
+
 # 核心功能：
 
 本项目是一套面向工业物联网场景的轻量化监控系统，以树莓派为边缘采集终端，Qt/C++开发跨平台上位机监控中心，实现环境数据的端到端安全采集、智能处理、实时监控与合规审计，兼顾边缘响应能力与传输安全性，适配中小规模工业现场、机房、仓储等场景的环境安全监控需求。
